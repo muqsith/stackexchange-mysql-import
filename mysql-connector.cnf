@@ -1,0 +1,7 @@
+[client]
+user=root
+password=
+# Made autocommit as true
+autocommit=1
+# Change the database name according to your requirments
+database=threedprint
