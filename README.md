@@ -17,7 +17,9 @@ Assuming you have site dump like askubuntu.com.7z
 	`
 	$ ./script.py /path/to/askubuntu.com.7z
 	`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or)
+	`
+	(or)
+	`
 	`
 	$ python3.5 script.py /path/to/askubuntu.com.7z
 	`
