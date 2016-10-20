@@ -26,7 +26,7 @@ Assuming you have site dump like askubuntu.com.7z
 
 *Optional steps*
 
-4. If you have already extracted the 7z compressed files then you can point the folder in the script instead of compressed file.
+* If you have already extracted the 7z compressed files then you can point the folder in the script instead of compressed file.
 	`
 	$ ./script.py /path/to/folder-with-xmls
 	`
