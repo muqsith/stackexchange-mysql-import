@@ -5,18 +5,26 @@ Steps to import stack exchange site data into MySQL
 
 Assuming you have site dump like askubuntu.com.7z
 
-1. In your MySQL, create database with desired name using TableCreationQueries.sql script (here i have created a database with name 'askubuntu'). 
+* In your MySQL, create database with desired name using TableCreationQueries.sql script (here i have created a database with name 'askubuntu'). 
 	a. Edit TableCreationQueries.sql script and change database name with the one you want.
 	b. start mysql client and type below command.
+		`
 		mysql> source /path/to/TableCreationQueries.sql
-2. Edit mysql-connector.cnf, enter your MySQL's user, password and the database created in step 1.
-3. Opten terminal and execute the script
+		`
+* Edit mysql-connector.cnf, enter your MySQL's user, password and the database created in step 1.
+* Opten terminal and execute the script
+
+	`
 	$ ./script.py /path/to/askubuntu.com.7z
-					(or)
+	`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or)
+	`
 	$ python3.5 script.py /path/to/askubuntu.com.7z
+	`
 
 *Optional steps*
 
 4. If you have already extracted the 7z compressed files then you can point the folder in the script instead of compressed file.
+	`
 	$ ./script.py /path/to/folder-with-xmls
-
+	`
