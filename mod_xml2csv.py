@@ -39,15 +39,6 @@ def get_xml_files(dir_path):
 
 #==============================================================
 
-def replace_escape_quot(file_path):
-	code = 0
-	command_list = ['sed','-i','s/\\&amp;quot;/\\&quot;/g',file_path]
-	try:
-		subprocess.check_output(command_list)
-	except subprocess.CalledProcessError as e:
-		code = e.returncode
-	return code
-
 #==============================================================
 
 def create_temp_csv_dir(parent_dir_path):
@@ -75,7 +66,9 @@ def write_data(csv_file=None, data=None):
 	with open(csv_file, 'a') as f:
 		for k in get_config()[entity_name]['columns'].keys():
 			try:
-				s += '"'+escape(data[k], {'"':'&quot;'})+'",'
+				d = data[k]
+				s += '"'+escape(d, {'"':'&quot;'})+'",'
+				s = s.replace('&amp;quot;','&quot;')
 			except:
 				s += '"",'
 		s = s[:len(s)-1]
@@ -115,7 +108,6 @@ def xml2csv(archive_path=None, xmls_dir=None):
 		if xmls_dir:
 			xml_files = get_xml_files(xmls_dir)
 			for xml_file in xml_files:
-				replace_escape_quot(xml_file)
 				parse_xml(xml_file,csvs_dir)
 	return csvs_dir
 
