@@ -81,7 +81,7 @@ def write_data(csv_file=None, data=None):
 def write2csv(element, attrs):
 	if element == 'row':
 		write_data(data=attrs)
-		
+
 
 def parse_xml(xml_file,csv_folder):
 	entity_name = xml_file.split(os.sep).pop().split('.')[0]
@@ -103,12 +103,10 @@ def xml2csv(archive_path=None, xmls_dir=None):
 	csvs_dir = ''
 	if archive_path:
 		xmls_dir = extract_7z_archive(archive_path)
-	if xmls_dir:
-		csvs_dir = create_temp_csv_dir(xmls_dir)
-		if xmls_dir:
-			xml_files = get_xml_files(xmls_dir)
-			for xml_file in xml_files:
-				parse_xml(xml_file,csvs_dir)
+	csvs_dir = create_temp_csv_dir(xmls_dir)
+	xml_files = get_xml_files(xmls_dir)
+	for xml_file in xml_files:
+		parse_xml(xml_file,csvs_dir)
 	return csvs_dir
 
 #==============================================================

@@ -1,7 +1,7 @@
 
-create database askubuntu character set utf8mb4;
+create database threedprint character set utf8mb4;
 
-use askubuntu;
+use threedprint;
 
 -- Users table
 CREATE TABLE `Users` (
