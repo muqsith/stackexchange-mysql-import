@@ -44,6 +44,7 @@ def extract_7z_archive(archive_path):
 		 	$ sudo apt install p7zip-full
 		ii. If you have installed 7zip, may be the bin folder is not in the path, please set(export) 7zip bin folder to environment path variable.
 		""")
+		raise
 #==============================================================
 
 def get_xml_files(dir_path):
