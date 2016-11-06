@@ -1,6 +1,12 @@
 # stackexchange-mysql-import
 Python script to import stack exchange site dump into MySQL.
 
+This script was written/tested/used on Ubuntu 16.04 (never tested on windows)
+
+Please install 7zip, if it is not installed.
+
+`$ sudo apt install p7zip-full`
+
 Steps to import stack exchange site data into MySQL
 
 Assuming you have site dump like askubuntu.com.7z
@@ -36,3 +42,7 @@ Assuming you have site dump like askubuntu.com.7z
 	`
 	$ ./script.py /path/to/folder-with-xmls
 	`
+	
+	There is also a simple (better) way to import using Ruby, follow below link.
+	https://gist.github.com/gousiosg/7600626
+		

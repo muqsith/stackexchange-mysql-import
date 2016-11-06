@@ -5,6 +5,7 @@ import subprocess
 import os
 import argparse
 import functools
+import shutil
 
 #==============	Load config.json ==============================
 config = None
@@ -19,19 +20,30 @@ def get_config():
 #==============	Extract xml files =============================
 
 def extract_7z_archive(archive_path):
-	successful = False
-	archive_name = archive_path.split(os.sep).pop()
-	directory_path = archive_path.replace(os.sep+archive_name,'')
-	extracted_directory = directory_path+os.sep+'d.'+archive_name
-	out_bytes = subprocess.check_output(['7z','x','-o'+extracted_directory,archive_path])
-	out_text = out_bytes.decode('utf-8')
-	for l in out_text.split('\n'):
-		if (l == 'Everything is Ok'):
-			successful = True
-			break
-	if not successful:
-		extracted_directory = ''
-	return extracted_directory
+	try:
+		successful = False
+		archive_name = archive_path.split(os.sep).pop()
+		directory_path = archive_path.replace(os.sep+archive_name,'')
+		extracted_directory = directory_path+os.sep+'d.'+archive_name
+		if os.path.isdir(extracted_directory):
+			shutil.rmtree(extracted_directory)
+		out_bytes = \
+			subprocess.check_output(['7z','x','-o' \
+				+extracted_directory,archive_path])
+		out_text = out_bytes.decode('utf-8')
+		for l in out_text.split('\n'):
+			if (l == 'Everything is Ok'):
+				successful = True
+				break
+		if not successful:
+			extracted_directory = ''
+		return extracted_directory
+	except:
+		print("""
+		 i. Please install 7zip if it is already not installed.
+		 	$ sudo apt install p7zip-full
+		ii. If you have installed 7zip, may be the bin folder is not in the path, please set(export) 7zip bin folder to environment path variable.
+		""")
 #==============================================================
 
 def get_xml_files(dir_path):
