@@ -43,6 +43,6 @@ Assuming you have site dump like askubuntu.com.7z
 	$ ./script.py /path/to/folder-with-xmls
 	`
 	
-	There is also a simple (better) way to import using Ruby, follow below link.
+There is also a simple (better) way to import using Ruby, follow link.
 	https://gist.github.com/gousiosg/7600626
 		
